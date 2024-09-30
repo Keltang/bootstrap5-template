@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlackBox.Infrastructure\BlackBox.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Solution\1. Domain\DomainEvents\" />
+    <Folder Include="wwwroot\Solution\1. Domain\Entities\" />
+    <Folder Include="wwwroot\Solution\1. Domain\Exceptions\" />
+    <Folder Include="wwwroot\Solution\1. Domain\Repositories\" />
+    <Folder Include="wwwroot\Solution\1. Domain\Shared\" />
+    <Folder Include="wwwroot\Solution\1. Domain\ValueObjects\" />
+    <Folder Include="wwwroot\Solution\2. Application\Abstractions\" />
+    <Folder Include="wwwroot\Solution\2. Application\Contracts\" />
+    <Folder Include="wwwroot\Solution\2. Application\Entity1\Commands\" />
+    <Folder Include="wwwroot\Solution\2. Application\Entity1\Events\" />
+    <Folder Include="wwwroot\Solution\2. Application\Entity1\Queries\" />
+  </ItemGroup>
+
+</Project>

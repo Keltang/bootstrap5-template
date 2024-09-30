@@ -1,0 +1,9 @@
+/BlackBox/.vs
+/BlackBox/BlackBox.Domain/bin
+/BlackBox/BlackBox.Domain/obj
+/BlackBox/BlackBox.Application/bin
+/BlackBox/BlackBox.Application/obj
+/BlackBox/BlackBox.Infrastructure/bin
+/BlackBox/BlackBox.Infrastructure/obj
+/BlackBox/BlackBox.Web/bin
+/BlackBox/BlackBox.Web/obj
