@@ -12,16 +12,12 @@ namespace BlackBox.Infrastructure.Persistence.Configurations
         {
             builder.ToTable($"{nameof(Grade)}s"); 
 
-            builder.Property(p => p.ExternalId).IsRequired();
             builder.Property(p => p.Code).IsRequired().HasMaxLength(DataSizeConstants.ShortTitleTextLength);
-            builder.Property(p => p.Name).IsRequired().HasMaxLength(DataSizeConstants.TitleTextLength);
-            builder.Property(p => p.OrderNumber).IsRequired();
-            builder.Property(p => p.SubjectAreaId).IsRequired();
+            builder.Property(p => p.Name).IsRequired().HasMaxLength(DataSizeConstants.TitleTextLength); 
 
-            builder.HasIndex(x => new { x.SubjectAreaId, x.Code }).IsUnique(); 
+            builder.HasIndex(x => new { x.Name, x.Code }).IsUnique(); 
              
-            builder.HasOne<ApplicationUser>().WithMany().HasForeignKey(new string[] { "CreatedBy" });
-            //builder.HasOne<SubjectArea>().WithMany().HasForeignKey(new string[] { "SubjectAreaId" });
+            builder.HasOne<ApplicationUser>().WithMany().HasForeignKey(new string[] { "CreatedBy" }); 
         }
     }
 }
