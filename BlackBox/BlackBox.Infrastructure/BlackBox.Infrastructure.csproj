@@ -19,7 +19,6 @@
     <Folder Include="Persistence\Scripts\" />
     <Folder Include="Persistence\Seeds\" />
     <Folder Include="Persistence\StoredProcedures\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>

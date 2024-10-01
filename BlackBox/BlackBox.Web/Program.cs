@@ -4,6 +4,7 @@ using BlackBox.Infrastructure;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore.Internal;
+using BlackBox.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,18 +34,18 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-await SeedDatabaseDataAsync(app);
+//await SeedDatabaseDataAsync(app);
 
 app.Run();
 
-static async Task SeedDatabaseDataAsync(WebApplication app)
-{
-    using (var scope = app.Services.CreateScope())
-    {
-        var identity = scope.ServiceProvider.GetRequiredService<IIdentityService>();
-        await AdministratorUserAccountSeed.ExecuteAsync(identity);
-    }
-}
+//static async Task SeedDatabaseDataAsync(WebApplication app)
+//{
+//    using (var scope = app.Services.CreateScope())
+//    {
+//        var identity = scope.ServiceProvider.GetRequiredService<IIdentityService>();
+//        await AdministratorUserAccountSeed.ExecuteAsync(identity);
+//    }
+//}
 
 static void RegisterServices(WebApplicationBuilder builder)
 {
@@ -56,19 +57,7 @@ static void RegisterServices(WebApplicationBuilder builder)
     services.AddScoped<ICurrentUserService, CurrentUserService>();
 
     services.AddHttpContextAccessor();
-    //services.AddControllers(options =>
-    //{
-    //    options.Filters.Add<ApiExceptionFilterAttribute>();
-    //});
-
-    services.AddCors(c =>
-    {
-        c.AddPolicy("AllowOrigin", options =>
-            options.AllowAnyOrigin()
-        .AllowAnyMethod()
-                .AllowAnyHeader());
-    });
-
+ 
     services.Configure<KestrelServerOptions>(options => options.Limits.MaxRequestBodySize = 100_000_000);
     services.Configure<FormOptions>(options =>
     {

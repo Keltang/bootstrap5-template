@@ -1,7 +1,9 @@
 ﻿using System.Text;
 using BlackBox.Application.Common.Interfaces;
 using BlackBox.Application.Configurations;
+using BlackBox.Infrastructure.Identity;
 using BlackBox.Infrastructure.Persistence.Contexts;
+using BlackBox.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -15,8 +17,7 @@ namespace BlackBox.Infrastructure
     {
         private const string ConnectionStringIdentifier = "DefaultConnection";
 
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services,
-            IConfiguration configuration)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<BlackBoxContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString(ConnectionStringIdentifier), 
